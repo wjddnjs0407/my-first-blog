@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>제목: {{ post.title }}</h1>
+
+<p><strong>작성자 : </strong><a href="">{{ post.author }}</a></p>
+<p><strong>지역 : </strong> {{ post.country }}</p>
+<p><strong>장르 : </strong>
+    {% for genre in post.genre.all %}
+    {{ genre }}
+    {% if not forloop.last %}
+    {% endif %}
+    {% endfor %}</p>
+<p><strong>글 내용 : </strong> {{ post.data }}</p>
+<a href="{% url 'post_update' post.id %}">포스트 수정하기</a>
+<a href="{% url 'post_delete' post.id %}">포스트 삭제하기</a>
+
+<div style="margin-left:20px;margin-top:20px"></div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>게시글 목록</h1>
+<h2>안녕하세요 영국맛집목록입니다.</h2>
+{% if ukfoods %}
+<ul>
+    {% for post in ukfoods %}
+    <li>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a> ({{ post.author }})
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>게시글이 없습니다.</p>
+{% endif %}
+{% endblock %}

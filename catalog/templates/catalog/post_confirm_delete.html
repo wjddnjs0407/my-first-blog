@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Delete Post</h1>
+
+<p>제목이 '{{ post }}'인 게시물을 삭제하시겠습니까? </p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" action="" value="네" />
+  <script>
+    function test()
+{
+     location.href="{% url 'index' %}"
+
+}  </script>
+  <input type="button" value="아니요" onclick="test()">
+</form>
+
+{% endblock %}

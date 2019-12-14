@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>유럽현지인</h1>
+<p>유럽현지인에 오신걸 환영합니다! 이 페이지는 <em>승미정원지원</em> 에 의해 개발되었습니다!</p>
+<h2>게시글 목록</h2>
+{% if posts %}
+<ul>
+    {% for post in posts %}
+    <li>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a> ({{ post.author }})
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>게시글이 없습니다.</p>
+{% endif %}
+{% endblock %}
